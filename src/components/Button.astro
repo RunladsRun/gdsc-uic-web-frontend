@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
 	variant: string;
 	color: string;
@@ -9,7 +11,7 @@ interface Props {
 const { variant, color, text, link} = Astro.props;
 ---
 
-<a class = {variant} href = {link}> {text}</a>
+<a class = {variant} href = {link}> {text} </a>
 
 <style define:vars={{ color }}>
     a {
@@ -20,10 +22,10 @@ const { variant, color, text, link} = Astro.props;
         text-align: center;
         font-weight: bold;
         border-color: var(--color);
-        font-family: "Roboto";
         text-decoration: none;
-        border: 10px;
+        border: 8px;
         border-style: solid;
+        transition: 0.2s;
     }
     .filled {
         color: white;
@@ -39,6 +41,12 @@ const { variant, color, text, link} = Astro.props;
         background-color: white;
         pointer-events: none;
         opacity: 0.3;
+    }
+    a:hover {
+        filter: brightness(80%);
+    }
+    a:active {
+        filter: brightness(100%);
     }
 
 </style>
